@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeployedAI — The 30-Day AI Build Sprint | Cohort 01</title>
+<meta name="description" content="A 4-week build sprint for mid-career professionals in non-coding roles. Get a personal AI exposure audit, build two AI tools on your own domain, and reposition your career. 15 seats. $300.">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  :root{
+    --ink:#ffffff;
+    --ink-soft:rgba(255,255,255,0.72);
+    --paper:#0a0a0a;
+    --paper-deep:rgba(255,255,255,0.03);
+    --line:rgba(255,255,255,0.09);
+    --amber:#FFD166;
+    --amber-bg:rgba(255,209,102,0.12);
+    --amber-border:rgba(255,209,102,0.35);
+    --green:#FFD166;
+    --green-bg:rgba(255,209,102,0.12);
+    --dim:rgba(255,255,255,0.55);
+    --dim-bg:rgba(255,255,255,0.06);
+    --white:#ffffff;
+    --serif:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);z-index:50}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wordmark{font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:.02em;text-decoration:none;color:var(--white)}
+  .wordmark span{color:var(--amber)}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;text-decoration:none;background:var(--amber);color:var(--paper);padding:9px 18px;border-radius:8px;transition:opacity .15s}
+  .nav-cta:hover{opacity:.88}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:800;font-size:clamp(32px,4.6vw,50px);line-height:1.08;letter-spacing:-.04em;margin-bottom:20px;color:var(--white)}
+  h1 em{font-style:normal;color:var(--amber)}
+  .hero-sub{font-size:18px;color:var(--ink-soft);max-width:46ch;margin-bottom:30px}
+  .hero-sub b{color:var(--white)}
+  .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:26px}
+  .btn{font-family:var(--mono);font-size:14px;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:8px;transition:opacity .15s,border-color .15s;display:inline-block}
+  .btn-primary{background:var(--amber);color:var(--paper)}
+  .btn-primary:hover{opacity:.88}
+  .btn-ghost{border:1px solid var(--line);color:var(--white)}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.3)}
+  .hero-meta{font-family:var(--mono);font-size:13px;color:var(--ink-soft);display:flex;gap:20px;flex-wrap:wrap}
+  .hero-meta b{color:var(--amber);font-weight:600}
+
+  /* audit card */
+  .audit-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .audit-head{background:rgba(255,255,255,.05);color:var(--white);font-family:var(--mono);font-size:12px;padding:12px 18px;display:flex;justify-content:space-between;letter-spacing:.03em;border-bottom:1px solid var(--line)}
+  .audit-head span:last-child{opacity:.5}
+  .audit-body{padding:20px 18px;display:flex;flex-direction:column;gap:12px}
+  .audit-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;padding:10px 12px;background:var(--paper-deep);border:1px solid var(--line);border-radius:6px}
+  .audit-row .k{color:var(--ink-soft)}
+  .tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;padding:3px 9px;border-radius:100px;white-space:nowrap}
+  .tag-risk{background:var(--dim-bg);color:var(--dim);border:1px solid var(--line)}
+  .tag-safe{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+  .audit-foot{border-top:1px dashed var(--line);padding:14px 18px;font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+  .audit-foot b{color:var(--amber);font-weight:600}
+
+  /* ---------- sections ---------- */
+  section{padding:76px 0}
+  .sec-label{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .sec-label::before{content:"// ";color:var(--dim)}
+  h2{font-family:var(--serif);font-weight:800;font-size:clamp(26px,3.4vw,36px);line-height:1.15;margin-bottom:16px;letter-spacing:-.03em;color:var(--white)}
+  .sec-intro{font-size:17px;color:var(--ink-soft);max-width:60ch;margin-bottom:40px}
+
+  /* triggers */
+  .band{background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trigger-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .trigger{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;padding:18px 20px;font-size:15.5px;color:var(--ink-soft)}
+  .trigger b{color:var(--white);font-weight:600}
+
+  /* exposed vs defensible */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .col-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .col-head{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;padding:13px 20px;display:flex;align-items:center;gap:10px}
+  .col-head.risk{background:var(--dim-bg);color:var(--dim)}
+  .col-head.safe{background:var(--amber-bg);color:var(--amber)}
+  .dot{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .col-card ul{list-style:none;padding:8px 0}
+  .col-card li{padding:13px 20px;font-size:15px;color:var(--ink-soft);border-top:1px solid var(--line)}
+  .col-card li:first-child{border-top:none}
+  .col-card li b{color:var(--white);font-weight:600;display:block;margin-bottom:2px}
+  .split-note{margin-top:26px;font-size:16px;color:var(--ink-soft);max-width:64ch}
+  .split-note b{color:var(--white)}
+
+  /* weeks */
+  .weeks{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .week{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
+  .week:first-child{border-top:none}
+  .week-num{font-family:var(--mono);font-size:13px;font-weight:600;padding:24px;background:var(--paper-deep);border-right:1px solid var(--line);color:var(--ink-soft)}
+  .week-num.hot{color:var(--amber)}
+  .week-body{padding:24px 28px}
+  .week-body h3{font-family:var(--serif);font-size:19px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;color:var(--white)}
+  .week-body p{font-size:15px;color:var(--ink-soft)}
+  .week-body .out{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--amber)}
+  .week-body .out::before{content:"→ ships: ";color:var(--ink-soft)}
+
+  /* deliverables */
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .check{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;font-size:15px;color:var(--ink-soft)}
+  .checkbox{font-family:var(--mono);color:var(--amber);font-weight:600;flex-shrink:0}
+  .check b{font-weight:600;color:var(--white)}
+
+  /* fit */
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .fit-card{border:1px solid var(--line);border-radius:14px;padding:26px 26px;background:var(--paper)}
+  .fit-card h3{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;margin-bottom:16px}
+  .fit-card.yes h3{color:var(--amber)}
+  .fit-card.no h3{color:var(--dim)}
+  .fit-card ul{list-style:none}
+  .fit-card li{padding:8px 0;font-size:15px;color:var(--ink-soft);display:flex;gap:11px}
+  .fit-card.yes li::before{content:"✓";color:var(--amber);font-weight:600}
+  .fit-card.no li::before{content:"✕";color:var(--dim);font-weight:600}
+
+  /* logistics */
+  .log-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .log-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .log-card .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .log-card .v{font-family:var(--serif);font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--amber)}
+  .log-card .s{font-size:13px;color:var(--ink-soft);margin-top:5px}
+
+  /* faq */
+  details{border:1px solid var(--line);border-radius:8px;background:var(--paper);margin-bottom:10px}
+  summary{cursor:pointer;padding:17px 20px;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+  summary::after{content:"+";font-family:var(--mono);color:var(--amber);font-size:18px}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 20px 18px;font-size:15px;color:var(--ink-soft)}
+
+  /* apply */
+  .apply{background:var(--paper-deep);border:1px solid var(--line);color:var(--white);border-radius:14px;padding:56px 48px;text-align:center}
+  .apply .sec-label{color:var(--amber)}
+  .apply h2{color:var(--white)}
+  .apply p{color:var(--ink-soft);max-width:52ch;margin:0 auto 30px;font-size:16.5px}
+  .apply .btn-primary{background:var(--amber);color:var(--paper);font-size:15px;padding:16px 34px}
+  .apply .btn-primary:hover{opacity:.88}
+  .apply .fine{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+
+  footer{padding:34px 0 46px;border-top:1px solid var(--line);margin-top:76px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);flex-wrap:wrap;gap:10px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+  :focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+  @media (max-width:840px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .trigger-list,.split,.checks,.fit-grid{grid-template-columns:1fr}
+    .log-grid{grid-template-columns:1fr 1fr}
+    .week{grid-template-columns:1fr}
+    .week-num{border-right:none;border-bottom:1px solid var(--line);padding:14px 24px}
+    section{padding:56px 0}
+    .apply{padding:44px 24px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#top">deployed<span>ai</span></a>
+    <a class="nav-cta" href="#apply">Apply — Cohort 01</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Cohort 01 · The 30-Day AI Build Sprint</div>
+      <h1>Your 10 years of experience aren't the problem. <em>Your zero AI proof is.</em></h1>
+      <p class="hero-sub">A 4-week cohort for mid-career professionals in non-coding roles. Start with a personal AI exposure audit of <b>your</b> job. Leave with two working AI tools built on your own domain — and a profile that shows them.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#apply">Apply for a seat</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <div class="hero-meta">
+        <span><b>$300</b> flat</span>
+        <span><b>15</b> seats only</span>
+        <span><b>4 weeks</b> + audit week</span>
+        <span>India & Europe friendly</span>
+      </div>
+    </div>
+
+    <div class="audit-card" aria-label="Sample from a personal AI capability audit">
+      <div class="audit-head"><span>AI_CAPABILITY_AUDIT.pdf</span><span>sample</span></div>
+      <div class="audit-body">
+        <div class="audit-row"><span class="k">manual test-case writing</span><span class="tag tag-risk">EXPOSED</span></div>
+        <div class="audit-row"><span class="k">defect triage & routing</span><span class="tag tag-risk">EXPOSED</span></div>
+        <div class="audit-row"><span class="k">regulated-domain depth</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-row"><span class="k">10 yrs client-system knowledge</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-row"><span class="k">stakeholder & escalation judgment</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+      </div>
+      <div class="audit-foot">verdict: <b>defensible — if you build the AI layer on top.</b> that's the sprint.</div>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-label rv">Sound familiar</div>
+    <h2 class="rv">You're not behind on AI. You're behind on proof.</h2>
+    <p class="sec-intro rv">You've watched the demos. You've opened ChatGPT, typed something, got a mediocre answer, and closed it. Meanwhile:</p>
+    <div class="trigger-list">
+      <div class="trigger rv">Your manager asked <b>"how are you using AI in your work?"</b> — and you didn't have a real answer.</div>
+      <div class="trigger rv">A younger colleague shipped something with AI in a day that would've taken <b>your team a sprint</b>.</div>
+      <div class="trigger rv">Your company is "exploring AI." You've correctly read what that <b>usually means for headcount</b>.</div>
+      <div class="trigger rv">Your certifications carried you for a decade — <b>ISTQB, PMP, CSM</b> — and they're depreciating in real time.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label rv">The honest part</div>
+    <h2 class="rv">Some of your work is exposed. Most of your value isn't.</h2>
+    <p class="sec-intro rv">Every cohort member starts with a personal audit — the same analysis we run for 1:1 clients. Here's what it typically finds for a mid-career, non-coding role:</p>
+    <div class="split">
+      <div class="col-card rv">
+        <div class="col-head risk"><span class="dot"></span>EXPOSED — AI is coming for this</div>
+        <ul>
+          <li><b>First-draft production work</b>Test cases, documentation, reports, summaries — generative AI drafts these in seconds.</li>
+          <li><b>Classification & routing</b>Triaging tickets, defects, requests — LLMs pre-sort faster than any human queue.</li>
+          <li><b>Repetitive validation</b>Checks that follow a written rule are exactly what AI automation eats first.</li>
+        </ul>
+      </div>
+      <div class="col-card rv">
+        <div class="col-head safe"><span class="dot"></span>DEFENSIBLE — your actual moat</div>
+        <ul>
+          <li><b>Domain & regulatory depth</b>AI has no institutional context. Someone still has to supply it and validate against it.</li>
+          <li><b>Judgment & escalation</b>Knowing what matters, who to call, and when to push back — organizational trust, not generation.</li>
+          <li><b>Tacit system knowledge</b>A decade of client-specific knowledge that was never written down anywhere an AI could learn it.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="split-note rv"><b>The move isn't to compete with AI on the exposed side.</b> It's to put AI to work on the exposed side yourself — supervised by your moat. That combination is what this sprint builds, with your own work as the raw material.</p>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="sec-label rv">How it works</div>
+    <h2 class="rv">Audit first. Then build in public for 4 weeks.</h2>
+    <p class="sec-intro rv">One live session per week (weekend, India & Europe friendly). ~1–1.5 hrs on weekdays, a bit more on weekends. Async support in a private group the whole way.</p>
+    <div class="weeks rv">
+      <div class="week">
+        <div class="week-num hot">WEEK 0</div>
+        <div class="week-body">
+          <h3>Your personal AI exposure & moat audit</h3>
+          <p>We analyze your specific role: which tasks are exposed, where your moat is, and which two capstones you'll build — chosen from your domain, not a generic curriculum.</p>
+          <p class="out">your audit report + capstone plan</p>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 1</div>
+        <div class="week-body">
+          <h3>Foundations that actually matter</h3>
+          <p>How LLMs work at a practitioner level — context, hallucination, prompting patterns — practiced daily on anonymized material from your own job. No fluff theory.</p>
+          <p class="out">LinkedIn post 1 — your sprint announcement</p>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 2</div>
+        <div class="week-body">
+          <h3>First build: your domain, your tool</h3>
+          <p>API basics and a light scripting refresher, then Capstone 1 — an AI tool that does a real task from your job (triage, classification, drafting), which you validate against your own judgment.</p>
+          <p class="out">LinkedIn post 2 — working prototype demo</p>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 3</div>
+        <div class="week-body">
+          <h3>Second build + agentic workflows</h3>
+          <p>Capstone 2 goes deeper — a generation-plus-validation pipeline, your first real agentic pattern. You're now the expert supervising the AI, on record.</p>
+          <p class="out">LinkedIn post 3 — demo video</p>
+        </div>
+      </div>
+      <div class="week">
+        <div class="week-num">WEEK 4</div>
+        <div class="week-body">
+          <h3>Deploy, document, reposition</h3>
+          <p>Both tools deployed somewhere demoable. A short case study for each. Then — only now, with proof in hand — your LinkedIn headline, About, and resume are rewritten around your new positioning.</p>
+          <p class="out">LinkedIn post 4 — 30-day showcase + your new profile</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label rv">What you leave with</div>
+    <h2 class="rv">Not a certificate. Evidence.</h2>
+    <div class="checks" style="margin-top:36px">
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Personal AI audit</b> of your exact role — exposure, moat, and direction</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Two working AI tools</b> built on your own domain, deployed and demoable</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Two written case studies</b> — problem, approach, what the AI got wrong, how you validated it</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>4 public build-in-public posts</b> — a visible, dated record that you did this</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Repositioned LinkedIn & resume</b> — rewritten around proof, not claims</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>An answer</b> for the next time anyone asks how you're using AI</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-label rv">Fit check</div>
+    <h2 class="rv">Built for a specific person. Maybe you.</h2>
+    <div class="fit-grid" style="margin-top:36px">
+      <div class="fit-card yes rv">
+        <h3>THIS IS FOR YOU IF</h3>
+        <ul>
+          <li>10+ years of experience in a non-coding role — QA, BA, project/delivery, scrum, ops, support, data</li>
+          <li>Zero or near-zero hands-on AI exposure</li>
+          <li>You can commit ~1–1.5 hrs on weekdays alongside a full-time job</li>
+          <li>You're willing to post your progress publicly on LinkedIn</li>
+          <li>You want proof you can show, not another certificate</li>
+        </ul>
+      </div>
+      <div class="fit-card no rv">
+        <h3>THIS IS NOT FOR YOU IF</h3>
+        <ul>
+          <li>You're a developer who can already build with AI — you need depth, not this</li>
+          <li>You have under ~5 years of experience — there's no moat to build on yet</li>
+          <li>You want passive video lessons to watch someday</li>
+          <li>You're looking for "AI will do my job for me" shortcuts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label rv">Logistics</div>
+    <h2 class="rv">The details, plainly.</h2>
+    <div class="log-grid" style="margin-top:36px">
+      <div class="log-card rv"><div class="k">Price</div><div class="v">$300</div><div class="s">one-time, everything included</div></div>
+      <div class="log-card rv"><div class="k">Seats</div><div class="v">15</div><div class="s">selected by application</div></div>
+      <div class="log-card rv"><div class="k">Duration</div><div class="v">4 weeks</div><div class="s">+ audit week before kickoff</div></div>
+      <div class="log-card rv"><div class="k">Live sessions</div><div class="v">Weekly</div><div class="s">weekend slot, India & Europe friendly</div></div>
+    </div>
+    <div style="margin-top:44px">
+      <details class="rv">
+        <summary>I haven't coded in 10+ years (or ever). Can I do this?</summary>
+        <p>Yes — that's the design assumption, not an edge case. The builds use AI-assisted coding and simple scripting; what matters is your domain judgment for validating what the AI produces. If you once wrote code long ago, that dormant background helps, but it isn't required.</p>
+      </details>
+      <details class="rv">
+        <summary>Why do I have to post on LinkedIn?</summary>
+        <p>Because the visible, dated record is half the outcome. The posts are your proof-of-work for recruiters, managers, and your own network — and the accountability keeps you finishing. We help you draft every post.</p>
+      </details>
+      <details class="rv">
+        <summary>Will my company data be involved?</summary>
+        <p>No. Everything you build uses anonymized or synthetic versions of the kind of material you work with. We cover how to anonymize safely in Week 0.</p>
+      </details>
+      <details class="rv">
+        <summary>What if the timings don't work for me?</summary>
+        <p>Live sessions are recorded, and most of the sprint is async with group support. But if you can't make most live sessions, wait for a future cohort — the live cohort energy is a real part of why people finish.</p>
+      </details>
+      <details class="rv">
+        <summary>Why only 15 seats?</summary>
+        <p>Because every member gets a personal audit and personally-chosen capstones. That doesn't scale past a small group — and we'd rather 15 people finish with real proof than 100 people watch videos.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="apply rv" id="apply">
+      <div class="sec-label">Cohort 01</div>
+      <h2>15 seats. Application, not checkout.</h2>
+      <p>Tell us about your role, your experience, and why now. We pick the 15 people this will work hardest for. Your audit starts the week before kickoff.</p>
+      <a class="btn btn-primary" href="#apply-form">Apply for Cohort 01</a>
+      <p class="fine">$300 · payable after your application is accepted · questions → hello@deployedai.example</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>deployed<span style="color:var(--amber)">ai</span> · the 30-day AI build sprint</span>
+    <span>cohort 01 · 2026</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
