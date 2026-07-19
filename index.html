@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DeployedAI — The 30-Day AI Build Sprint | Cohort 01</title>
-<meta name="description" content="A 4-week build sprint for mid-career professionals in non-coding roles. Get a personal AI exposure audit, build two AI tools on your own domain, and reposition your career. 15 seats. $300.">
+<title>DeployedAI: The 30-Day AI Build Sprint | Cohort 01</title>
+<meta name="description" content="A 4-week build sprint for mid-career professionals in non-coding roles. Get a personal audit of what AI can and can't do in your job, build the AI foundations your career is missing, and leave with proof on your LinkedIn. 15 seats. $300.">
 <link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root{
@@ -66,15 +66,16 @@
   .audit-head .fname{flex:1}
   .audit-head .badge{opacity:.5}
   .audit-body{padding:20px 18px;display:flex;flex-direction:column;gap:11px}
+  .audit-cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--dim);margin-bottom:1px}
   .audit-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;padding:11px 13px;background:var(--paper-deep);border:1px solid var(--line);border-left-width:2px;border-radius:6px;opacity:0;animation:audit-in .45s ease forwards;transition:background .15s}
   .audit-row:hover{background:rgba(255,255,255,.055)}
   .audit-row.is-safe{border-left-color:var(--amber-border)}
   .audit-row.is-risk{border-left-color:rgba(255,255,255,.22)}
-  .audit-row:nth-child(1){animation-delay:.15s}
-  .audit-row:nth-child(2){animation-delay:.3s}
-  .audit-row:nth-child(3){animation-delay:.45s}
-  .audit-row:nth-child(4){animation-delay:.6s}
-  .audit-row:nth-child(5){animation-delay:.75s}
+  .audit-row:nth-child(2){animation-delay:.15s}
+  .audit-row:nth-child(3){animation-delay:.3s}
+  .audit-row:nth-child(4){animation-delay:.45s}
+  .audit-row:nth-child(5){animation-delay:.6s}
+  .audit-row:nth-child(6){animation-delay:.75s}
   @keyframes audit-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .audit-row .k{color:var(--ink-soft)}
   .tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;padding:3px 9px;border-radius:100px;white-space:nowrap}
@@ -87,10 +88,10 @@
   .moat-meter .bar{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden}
   .moat-meter .bar span{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,rgba(255,209,102,.5),var(--amber));animation:moat-fill 1s ease .8s forwards}
   .moat-meter .pct{font-size:11px;color:var(--amber);font-weight:600}
-  @keyframes moat-fill{to{width:64%}}
+  @keyframes moat-fill{to{width:60%}}
   @media (prefers-reduced-motion:reduce){
     .audit-row{opacity:1;animation:none}
-    .moat-meter .bar span{width:64%;animation:none}
+    .moat-meter .bar span{width:60%;animation:none}
   }
 
   /* ---------- sections ---------- */
@@ -200,7 +201,7 @@
 <nav>
   <div class="wrap nav-inner">
     <a class="wordmark" href="#top">deployed<span>ai</span></a>
-    <a class="nav-cta" href="#apply">Apply — Cohort 01</a>
+    <a class="nav-cta" href="#apply">Apply · Cohort 01</a>
   </div>
 </nav>
 
@@ -208,8 +209,8 @@
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">Cohort 01 · The 30-Day AI Build Sprint</div>
-      <h1>Your 10 years of experience aren't the problem. <em>Your zero AI proof is.</em></h1>
-      <p class="hero-sub">A 4-week cohort for mid-career professionals in non-coding roles. Start with a personal AI exposure audit of <b>your</b> job. Leave with two working AI tools built on your own domain — and a profile that shows them.</p>
+      <h1>From zero AI to <em>real AI foundations</em> in 30 days.</h1>
+      <p class="hero-sub">A 4-week cohort for mid-career professionals in non-coding roles. We audit <b>your</b> job to find what AI can and can't do, then give you the AI foundations your career is missing, with proof on your LinkedIn to show for it.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#apply">Apply for a seat</a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
@@ -222,18 +223,19 @@
       </div>
     </div>
 
-    <div class="audit-card" aria-label="Sample from a personal AI capability audit">
-      <div class="audit-head"><span class="audit-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="fname">AI_CAPABILITY_AUDIT.pdf</span><span class="badge">sample</span></div>
+    <div class="audit-card" aria-label="Sample from a personal AI exposure audit for a QA lead with 10 years of experience">
+      <div class="audit-head"><span class="audit-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="fname">YOUR_AI_AUDIT.pdf</span><span class="badge">sample · QA lead, 10 yrs</span></div>
       <div class="audit-body">
-        <div class="audit-row is-risk"><span class="k">manual test-case writing</span><span class="tag tag-risk">EXPOSED</span></div>
-        <div class="audit-row is-risk"><span class="k">defect triage & routing</span><span class="tag tag-risk">EXPOSED</span></div>
-        <div class="audit-row is-safe"><span class="k">regulated-domain depth</span><span class="tag tag-safe">DEFENSIBLE</span></div>
-        <div class="audit-row is-safe"><span class="k">10 yrs client-system knowledge</span><span class="tag tag-safe">DEFENSIBLE</span></div>
-        <div class="audit-row is-safe"><span class="k">stakeholder & escalation judgment</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-cap">week 0: your job, task by task. can AI do it?</div>
+        <div class="audit-row is-risk"><span class="k">writing test cases</span><span class="tag tag-risk">AI CAN</span></div>
+        <div class="audit-row is-risk"><span class="k">triaging & routing defects</span><span class="tag tag-risk">AI CAN</span></div>
+        <div class="audit-row is-safe"><span class="k">your domain & compliance knowledge</span><span class="tag tag-safe">AI CAN'T</span></div>
+        <div class="audit-row is-safe"><span class="k">10 yrs of client-system knowledge</span><span class="tag tag-safe">AI CAN'T</span></div>
+        <div class="audit-row is-safe"><span class="k">judgment calls & escalations</span><span class="tag tag-safe">AI CAN'T</span></div>
       </div>
       <div class="audit-foot">
-        <div class="moat-meter"><span class="lbl">moat strength</span><span class="bar"><span></span></span><span class="pct">64%</span></div>
-        verdict: <b>defensible — if you build the AI layer on top.</b> that's the sprint.
+        <div class="moat-meter"><span class="lbl">AI can't replace</span><span class="bar"><span></span></span><span class="pct">3 / 5</span></div>
+        verdict: <b>your job is safe if you're the one making AI do the first two.</b> that's what you learn here.
       </div>
     </div>
   </div>
@@ -245,10 +247,10 @@
     <h2 class="rv">You're not behind on AI. You're behind on proof.</h2>
     <p class="sec-intro rv">You've watched the demos. You've opened ChatGPT, typed something, got a mediocre answer, and closed it. Meanwhile:</p>
     <div class="trigger-list">
-      <div class="trigger rv">Your manager asked <b>"how are you using AI in your work?"</b> — and you didn't have a real answer.</div>
+      <div class="trigger rv">Your manager asked <b>"how are you using AI in your work?"</b> and you didn't have a real answer.</div>
       <div class="trigger rv">A younger colleague shipped something with AI in a day that would've taken <b>your team a sprint</b>.</div>
       <div class="trigger rv">Your company is "exploring AI." You've correctly read what that <b>usually means for headcount</b>.</div>
-      <div class="trigger rv">Your certifications carried you for a decade — <b>ISTQB, PMP, CSM</b> — and they're depreciating in real time.</div>
+      <div class="trigger rv">Your certifications (<b>ISTQB, PMP, CSM</b>) carried you for a decade, and they're depreciating in real time.</div>
     </div>
   </div>
 </section>
@@ -256,27 +258,27 @@
 <section>
   <div class="wrap">
     <div class="sec-label rv">The honest part</div>
-    <h2 class="rv">Some of your work is exposed. Most of your value isn't.</h2>
-    <p class="sec-intro rv">Every cohort member starts with a personal audit — the same analysis we run for 1:1 clients. Here's what it typically finds for a mid-career, non-coding role:</p>
+    <h2 class="rv">AI can do parts of your job. It can't do the parts that took you 10 years.</h2>
+    <p class="sec-intro rv">In week 0 we map this for your exact role. For a typical mid-career, non-coding role, it looks like this:</p>
     <div class="split">
       <div class="col-card rv">
-        <div class="col-head risk"><span class="dot"></span>EXPOSED — AI is coming for this</div>
+        <div class="col-head risk"><span class="dot"></span>AI CAN DO THIS TODAY</div>
         <ul>
-          <li><b>First-draft production work</b>Test cases, documentation, reports, summaries — generative AI drafts these in seconds.</li>
-          <li><b>Classification & routing</b>Triaging tickets, defects, requests — LLMs pre-sort faster than any human queue.</li>
-          <li><b>Repetitive validation</b>Checks that follow a written rule are exactly what AI automation eats first.</li>
+          <li><b>Writing drafts</b>Test cases, reports, documentation, summaries. AI writes these in seconds.</li>
+          <li><b>Sorting and routing</b>Deciding which ticket, defect, or request goes to whom. AI sorts faster than any person.</li>
+          <li><b>Rule-based checks</b>Any check that follows a written rule. This is the first thing companies automate.</li>
         </ul>
       </div>
       <div class="col-card rv">
-        <div class="col-head safe"><span class="dot"></span>DEFENSIBLE — your actual moat</div>
+        <div class="col-head safe"><span class="dot"></span>AI CAN'T DO THIS</div>
         <ul>
-          <li><b>Domain & regulatory depth</b>AI has no institutional context. Someone still has to supply it and validate against it.</li>
-          <li><b>Judgment & escalation</b>Knowing what matters, who to call, and when to push back — organizational trust, not generation.</li>
-          <li><b>Tacit system knowledge</b>A decade of client-specific knowledge that was never written down anywhere an AI could learn it.</li>
+          <li><b>Know your domain</b>Your industry's rules, your client's systems, how things actually work at your company. You know this. AI doesn't.</li>
+          <li><b>Tell right from wrong</b>AI produces answers fast, but it can't tell which ones are wrong. Someone with experience has to check.</li>
+          <li><b>Make the judgment calls</b>Who to call, when to escalate, when to push back. That took you 10 years to learn.</li>
         </ul>
       </div>
     </div>
-    <p class="split-note rv"><b>The move isn't to compete with AI on the exposed side.</b> It's to put AI to work on the exposed side yourself — supervised by your moat. That combination is what this sprint builds, with your own work as the raw material.</p>
+    <p class="split-note rv"><b>So the plan is simple: you use AI to do the left column, and your experience to check its work.</b> People who can do both are the ones companies keep. Learning to do both is exactly what this sprint is.</p>
   </div>
 </section>
 
@@ -284,46 +286,46 @@
   <div class="wrap">
     <div class="sec-label rv">How it works</div>
     <h2 class="rv">Audit first. Then build in public for 4 weeks.</h2>
-    <p class="sec-intro rv">Two live sessions per week, 1–1.5 hrs each — one for guided teaching, one for check-ins and unblocking (India & Europe friendly slots). Async support in a private group the whole way.</p>
+    <p class="sec-intro rv">Two live sessions per week, 1–1.5 hrs each: one for guided teaching, one for check-ins and unblocking (India & Europe friendly slots). Async support in a private group the whole way.</p>
     <div class="weeks rv">
       <div class="week">
         <div class="week-num hot">WEEK 0</div>
         <div class="week-body">
-          <h3>Your personal AI exposure & moat audit</h3>
-          <p>We analyze your specific role: which tasks are exposed, where your moat is, and which two capstones you'll build — chosen from your domain, not a generic curriculum.</p>
-          <p class="out">your audit report + capstone plan</p>
+          <h3>Your personal AI audit: what's safe, what's not</h3>
+          <p>We analyze your specific role: which of your tasks AI can do, which it can't, and which two projects you'll build, chosen from your day-to-day work, not a generic curriculum.</p>
+          <p class="out">your audit report + your two project picks</p>
         </div>
       </div>
       <div class="week">
         <div class="week-num">WEEK 1</div>
         <div class="week-body">
           <h3>Foundations that actually matter</h3>
-          <p>How LLMs work at a practitioner level — context, hallucination, prompting patterns — practiced daily on anonymized material from your own job. No fluff theory.</p>
-          <p class="out">LinkedIn post 1 — your sprint announcement</p>
+          <p>How LLMs work at a practitioner level (context, hallucination, prompting patterns), practiced daily on anonymized material from your own job. No fluff theory.</p>
+          <p class="out">LinkedIn post 1: your sprint announcement</p>
         </div>
       </div>
       <div class="week">
         <div class="week-num">WEEK 2</div>
         <div class="week-body">
           <h3>First build: your domain, your tool</h3>
-          <p>API basics and a light scripting refresher, then Capstone 1 — an AI tool that does a real task from your job (triage, classification, drafting), which you validate against your own judgment.</p>
-          <p class="out">LinkedIn post 2 — working prototype demo</p>
+          <p>API basics and a light scripting refresher, then Project 1: an AI tool that does a real task from your job (sorting defects, drafting test cases, writing reports), and you check its work with your own judgment.</p>
+          <p class="out">LinkedIn post 2: working prototype demo</p>
         </div>
       </div>
       <div class="week">
         <div class="week-num">WEEK 3</div>
         <div class="week-body">
           <h3>Second build + agentic workflows</h3>
-          <p>Capstone 2 goes deeper — a generation-plus-validation pipeline, your first real agentic pattern. You're now the expert supervising the AI, on record.</p>
-          <p class="out">LinkedIn post 3 — demo video</p>
+          <p>Project 2 goes deeper: AI does the work, then checks its own work, and you supervise both steps. This is what companies mean by "agentic AI", and you'll have built one.</p>
+          <p class="out">LinkedIn post 3: demo video</p>
         </div>
       </div>
       <div class="week">
         <div class="week-num">WEEK 4</div>
         <div class="week-body">
           <h3>Deploy, document, reposition</h3>
-          <p>Both tools deployed somewhere demoable. A short case study for each. Then — only now, with proof in hand — your LinkedIn headline, About, and resume are rewritten around your new positioning.</p>
-          <p class="out">LinkedIn post 4 — 30-day showcase + your new profile</p>
+          <p>Both tools deployed somewhere demoable. A short case study for each. Then, with proof in hand, your LinkedIn headline, About, and resume are rewritten around your new positioning.</p>
+          <p class="out">LinkedIn post 4: 30-day showcase + your new profile</p>
         </div>
       </div>
     </div>
@@ -335,11 +337,11 @@
     <div class="sec-label rv">What you leave with</div>
     <h2 class="rv">Not a certificate. Evidence.</h2>
     <div class="checks" style="margin-top:36px">
-      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Personal AI audit</b> of your exact role — exposure, moat, and direction</span></div>
-      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Two working AI tools</b> built on your own domain, deployed and demoable</span></div>
-      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Two written case studies</b> — problem, approach, what the AI got wrong, how you validated it</span></div>
-      <div class="check rv"><span class="checkbox">[✓]</span><span><b>4 public build-in-public posts</b> — a visible, dated record that you did this</span></div>
-      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Repositioned LinkedIn & resume</b> — rewritten around proof, not claims</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Personal AI audit</b> of your exact role: what AI can take over, what it can't, and your plan</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Real AI foundations</b>: LLMs, prompting, APIs, and agentic workflows you can actually use at work</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Two written case studies</b>: problem, approach, what the AI got wrong, how you validated it</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>4 public build-in-public posts</b>: a visible, dated record that you did this</span></div>
+      <div class="check rv"><span class="checkbox">[✓]</span><span><b>Repositioned LinkedIn & resume</b>: rewritten around proof, not claims</span></div>
       <div class="check rv"><span class="checkbox">[✓]</span><span><b>An answer</b> for the next time anyone asks how you're using AI</span></div>
     </div>
   </div>
@@ -353,7 +355,7 @@
       <div class="fit-card yes rv">
         <h3>THIS IS FOR YOU IF</h3>
         <ul>
-          <li>10+ years of experience in a non-coding role — QA, BA, project/delivery, scrum, ops, support, data</li>
+          <li>10+ years of experience in a non-coding role: QA, BA, project/delivery, scrum, ops, support, data</li>
           <li>Zero or near-zero hands-on AI exposure</li>
           <li>You can commit ~1–1.5 hrs on weekdays alongside a full-time job</li>
           <li>You're willing to post your progress publicly on LinkedIn</li>
@@ -363,8 +365,8 @@
       <div class="fit-card no rv">
         <h3>THIS IS NOT FOR YOU IF</h3>
         <ul>
-          <li>You're a developer who can already build with AI — you need depth, not this</li>
-          <li>You have under ~5 years of experience — there's no moat to build on yet</li>
+          <li>You're a developer who can already build with AI. You need depth, not this</li>
+          <li>You have under ~5 years of experience (the whole approach builds on experience you don't have yet)</li>
           <li>You want passive video lessons to watch someday</li>
           <li>You're looking for "AI will do my job for me" shortcuts</li>
         </ul>
@@ -386,11 +388,11 @@
     <div style="margin-top:44px">
       <details class="rv">
         <summary>I haven't coded in 10+ years (or ever). Can I do this?</summary>
-        <p>Yes — that's the design assumption, not an edge case. The builds use AI-assisted coding and simple scripting; what matters is your domain judgment for validating what the AI produces. If you once wrote code long ago, that dormant background helps, but it isn't required.</p>
+        <p>Yes. That's the design assumption, not an edge case. The builds use AI-assisted coding and simple scripting; what matters is your domain judgment for validating what the AI produces. If you once wrote code long ago, that dormant background helps, but it isn't required.</p>
       </details>
       <details class="rv">
         <summary>Why do I have to post on LinkedIn?</summary>
-        <p>Because the visible, dated record is half the outcome. The posts are your proof-of-work for recruiters, managers, and your own network — and the accountability keeps you finishing. We help you draft every post.</p>
+        <p>Because the visible, dated record is half the outcome. The posts are your proof-of-work for recruiters, managers, and your own network, and the accountability keeps you finishing. We help you draft every post.</p>
       </details>
       <details class="rv">
         <summary>Will my company data be involved?</summary>
@@ -398,11 +400,11 @@
       </details>
       <details class="rv">
         <summary>What if the timings don't work for me?</summary>
-        <p>Live sessions are recorded, and most of the sprint is async with group support. But if you can't make most live sessions, wait for a future cohort — the live cohort energy is a real part of why people finish.</p>
+        <p>Live sessions are recorded, and most of the sprint is async with group support. But if you can't make most live sessions, wait for a future cohort. The live cohort energy is a real part of why people finish.</p>
       </details>
       <details class="rv">
         <summary>Why only 15 seats?</summary>
-        <p>Because every member gets a personal audit and personally-chosen capstones. That doesn't scale past a small group — and we'd rather 15 people finish with real proof than 100 people watch videos.</p>
+        <p>Because every member gets a personal audit and projects chosen for their specific job. That doesn't scale past a small group, and we'd rather 15 people finish with real proof than 100 people watch videos.</p>
       </details>
     </div>
   </div>
