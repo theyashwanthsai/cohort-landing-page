@@ -57,17 +57,41 @@
   .hero-meta b{color:var(--amber);font-weight:600}
 
   /* audit card */
-  .audit-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-  .audit-head{background:rgba(255,255,255,.05);color:var(--white);font-family:var(--mono);font-size:12px;padding:12px 18px;display:flex;justify-content:space-between;letter-spacing:.03em;border-bottom:1px solid var(--line)}
-  .audit-head span:last-child{opacity:.5}
-  .audit-body{padding:20px 18px;display:flex;flex-direction:column;gap:12px}
-  .audit-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;padding:10px 12px;background:var(--paper-deep);border:1px solid var(--line);border-radius:6px}
+  .audit-card{position:relative;background:linear-gradient(165deg,rgba(255,255,255,.045),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.85),0 0 40px -18px rgba(255,209,102,.18)}
+  .audit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber) 35%,var(--amber) 65%,transparent);opacity:.65}
+  .audit-head{background:rgba(255,255,255,.05);color:var(--white);font-family:var(--mono);font-size:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;letter-spacing:.03em;border-bottom:1px solid var(--line)}
+  .audit-dots{display:flex;gap:5px}
+  .audit-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.14)}
+  .audit-dots i:first-child{background:rgba(255,209,102,.55)}
+  .audit-head .fname{flex:1}
+  .audit-head .badge{opacity:.5}
+  .audit-body{padding:20px 18px;display:flex;flex-direction:column;gap:11px}
+  .audit-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;padding:11px 13px;background:var(--paper-deep);border:1px solid var(--line);border-left-width:2px;border-radius:6px;opacity:0;animation:audit-in .45s ease forwards;transition:background .15s}
+  .audit-row:hover{background:rgba(255,255,255,.055)}
+  .audit-row.is-safe{border-left-color:var(--amber-border)}
+  .audit-row.is-risk{border-left-color:rgba(255,255,255,.22)}
+  .audit-row:nth-child(1){animation-delay:.15s}
+  .audit-row:nth-child(2){animation-delay:.3s}
+  .audit-row:nth-child(3){animation-delay:.45s}
+  .audit-row:nth-child(4){animation-delay:.6s}
+  .audit-row:nth-child(5){animation-delay:.75s}
+  @keyframes audit-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .audit-row .k{color:var(--ink-soft)}
   .tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;padding:3px 9px;border-radius:100px;white-space:nowrap}
   .tag-risk{background:var(--dim-bg);color:var(--dim);border:1px solid var(--line)}
   .tag-safe{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
   .audit-foot{border-top:1px dashed var(--line);padding:14px 18px;font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
   .audit-foot b{color:var(--amber);font-weight:600}
+  .moat-meter{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .moat-meter .lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+  .moat-meter .bar{flex:1;height:4px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden}
+  .moat-meter .bar span{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,rgba(255,209,102,.5),var(--amber));animation:moat-fill 1s ease .8s forwards}
+  .moat-meter .pct{font-size:11px;color:var(--amber);font-weight:600}
+  @keyframes moat-fill{to{width:64%}}
+  @media (prefers-reduced-motion:reduce){
+    .audit-row{opacity:1;animation:none}
+    .moat-meter .bar span{width:64%;animation:none}
+  }
 
   /* ---------- sections ---------- */
   section{padding:76px 0}
@@ -199,15 +223,18 @@
     </div>
 
     <div class="audit-card" aria-label="Sample from a personal AI capability audit">
-      <div class="audit-head"><span>AI_CAPABILITY_AUDIT.pdf</span><span>sample</span></div>
+      <div class="audit-head"><span class="audit-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="fname">AI_CAPABILITY_AUDIT.pdf</span><span class="badge">sample</span></div>
       <div class="audit-body">
-        <div class="audit-row"><span class="k">manual test-case writing</span><span class="tag tag-risk">EXPOSED</span></div>
-        <div class="audit-row"><span class="k">defect triage & routing</span><span class="tag tag-risk">EXPOSED</span></div>
-        <div class="audit-row"><span class="k">regulated-domain depth</span><span class="tag tag-safe">DEFENSIBLE</span></div>
-        <div class="audit-row"><span class="k">10 yrs client-system knowledge</span><span class="tag tag-safe">DEFENSIBLE</span></div>
-        <div class="audit-row"><span class="k">stakeholder & escalation judgment</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-row is-risk"><span class="k">manual test-case writing</span><span class="tag tag-risk">EXPOSED</span></div>
+        <div class="audit-row is-risk"><span class="k">defect triage & routing</span><span class="tag tag-risk">EXPOSED</span></div>
+        <div class="audit-row is-safe"><span class="k">regulated-domain depth</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-row is-safe"><span class="k">10 yrs client-system knowledge</span><span class="tag tag-safe">DEFENSIBLE</span></div>
+        <div class="audit-row is-safe"><span class="k">stakeholder & escalation judgment</span><span class="tag tag-safe">DEFENSIBLE</span></div>
       </div>
-      <div class="audit-foot">verdict: <b>defensible — if you build the AI layer on top.</b> that's the sprint.</div>
+      <div class="audit-foot">
+        <div class="moat-meter"><span class="lbl">moat strength</span><span class="bar"><span></span></span><span class="pct">64%</span></div>
+        verdict: <b>defensible — if you build the AI layer on top.</b> that's the sprint.
+      </div>
     </div>
   </div>
 </header>
@@ -257,7 +284,7 @@
   <div class="wrap">
     <div class="sec-label rv">How it works</div>
     <h2 class="rv">Audit first. Then build in public for 4 weeks.</h2>
-    <p class="sec-intro rv">One live session per week (weekend, India & Europe friendly). ~1–1.5 hrs on weekdays, a bit more on weekends. Async support in a private group the whole way.</p>
+    <p class="sec-intro rv">Two live sessions per week, 1–1.5 hrs each — one for guided teaching, one for check-ins and unblocking (India & Europe friendly slots). Async support in a private group the whole way.</p>
     <div class="weeks rv">
       <div class="week">
         <div class="week-num hot">WEEK 0</div>
@@ -354,7 +381,7 @@
       <div class="log-card rv"><div class="k">Price</div><div class="v">$300</div><div class="s">one-time, everything included</div></div>
       <div class="log-card rv"><div class="k">Seats</div><div class="v">15</div><div class="s">selected by application</div></div>
       <div class="log-card rv"><div class="k">Duration</div><div class="v">4 weeks</div><div class="s">+ audit week before kickoff</div></div>
-      <div class="log-card rv"><div class="k">Live sessions</div><div class="v">Weekly</div><div class="s">weekend slot, India & Europe friendly</div></div>
+      <div class="log-card rv"><div class="k">Live sessions</div><div class="v">2× weekly</div><div class="s">1–1.5 hrs each · check-ins & guided sessions · India & Europe friendly</div></div>
     </div>
     <div style="margin-top:44px">
       <details class="rv">
